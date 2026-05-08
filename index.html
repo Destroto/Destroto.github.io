@@ -1,37 +1,73 @@
----
-layout: default
-title: Home
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aether Rail Campaign Index</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="topbar" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Campaign Resource Index home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span>Aether Rail Index</span>
+        </a>
+        <div class="nav-actions">
+          <a href="#races">Races</a>
+          <a href="#classes">Classes</a>
+          <a href="#firearms">Firearms</a>
+          <a href="#spells">Spells</a>
+          <a href="#worlds">Worlds</a>
+        </div>
+      </nav>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+      <section class="hero" id="top">
+        <div class="hero-art" aria-hidden="true">
+          <div class="gear gear-one"></div>
+          <div class="gear gear-two"></div>
+          <div class="rail-lines"></div>
+          <div class="aether-core"></div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">1910s Aetherpunk Field Desk</p>
+          <h1>Campaign resources for brass cities and frontier roads.</h1>
+          <p>
+            Browse character options, firearms, spellcraft, workshops, monster hunts,
+            and frontier sourcebooks from the shared Google Drive library.
+          </p>
+        </div>
+        <aside class="source-panel" aria-label="Indexed source files">
+          <h2>Sources</h2>
+          <ul id="sourceList"></ul>
+        </aside>
+      </section>
+    </header>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <main>
+      <section class="control-band" aria-label="Search and filters">
+        <div class="search-wrap">
+          <label for="searchInput">Search resources</label>
+          <input id="searchInput" type="search" placeholder="Search race, subclass, firearm, spell, sourcebook, or sheet" />
+        </div>
+        <div class="stats" id="stats" aria-live="polite"></div>
+      </section>
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
+      <section class="tab-shell" aria-label="Resource categories">
+        <div class="tabs" id="tabList" role="tablist" aria-label="Categories"></div>
+        <div id="tabPanels"></div>
+      </section>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+      <section class="notes-band" aria-label="Publishing notes">
+        <h2>Google Sites Setup</h2>
+        <p>
+          All primary source links now point to the shared Google Drive folder or its files.
+          To publish in Google Sites, add this page as an embed or host the static files elsewhere
+          and embed that published URL.
+        </p>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
