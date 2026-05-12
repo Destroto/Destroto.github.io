@@ -18,7 +18,7 @@
           <p class="kicker">You did it</p>
           <h2>Congrats Claire!</h2>
           <p>
-            Today is yours. Take one big breath, soak it in, and then open the rest of your surprise.
+            Today the day. Take one big breath, soak it in, and then open the rest of your surprise.
           </p>
         </div>
       </div>
@@ -29,58 +29,51 @@
         <!--<p class="kicker">A tiny graduation surprise</p>-->
         <h1 id="pageTitle">Claire, this one is for you.</h1>
         <p>
-          Open the scrapbook, peek inside the envelopes, and collect a few soft little reminders
-          of how loved and celebrated you are.
+          Open letters from the people who have been part of your journey, then peek through a few
+          little memories saved just for you.
         </p>
       </section>
 
-      <section class="workspace" aria-label="Interactive scrapbook desk">
+      <section class="letters-section" aria-labelledby="lettersTitle">
+        <div class="section-heading">
+          <p class="kicker">Letters for Claire</p>
+          <h2 id="lettersTitle">A collection from your people</h2>
+          <p>
+            Each envelope is a letter placeholder. Add, remove, or edit letters in
+            <code>script.js</code>.
+          </p>
+        </div>
+        <div class="letters-grid" id="lettersGrid" aria-label="Letter collection"></div>
+      </section>
+
+      <section class="workspace memories-section" aria-label="Interactive scrapbook desk">
         <div class="scattered-note note-one" aria-hidden="true">So proud</div>
         <div class="scattered-note note-two" aria-hidden="true">Class of 2026</div>
 
-        <article class="scrapbook" aria-label="Claire's graduation scrapbook">
-          <div class="page left-page">
-            <div class="binding" aria-hidden="true"></div>
+        <article class="scrapbook memory-board" aria-label="Claire's graduation scrapbook">
+          <div class="page memory-page">
             <p class="page-label">Scrapbook</p>
             <h2>Little moments worth keeping</h2>
             <div class="polaroid-grid">
-              <button class="polaroid memory-card" type="button" data-surprise="memory">
-                <span class="photo photo-sun"></span>
+              <button class="polaroid memory-card" type="button" data-surprise="memory" data-photo="./assets/photos/favorite-memory.jpg">
+                <span class="photo photo-sun">
+                  <img src="./assets/photos/favorite-memory.jpg" alt="Claire favorite memory" />
+                </span>
                 <span>Favorite memory</span>
               </button>
-              <button class="polaroid memory-card" type="button" data-surprise="proud">
-                <span class="photo photo-stars"></span>
+              <button class="polaroid memory-card" type="button" data-surprise="proud" data-photo="./assets/photos/proud-moment.jpg">
+                <span class="photo photo-stars">
+                  <img src="./assets/photos/proud-moment.jpg" alt="Claire proud moment" />
+                </span>
                 <span>Proud moment</span>
               </button>
-              <button class="polaroid memory-card" type="button" data-surprise="future">
-                <span class="photo photo-path"></span>
+              <button class="polaroid memory-card" type="button" data-surprise="future" data-photo="./assets/photos/next-adventure.jpg">
+                <span class="photo photo-path">
+                  <img src="./assets/photos/next-adventure.jpg" alt="Claire next adventure" />
+                </span>
                 <span>Next adventure</span>
               </button>
             </div>
-          </div>
-
-          <div class="page right-page">
-            <p class="page-label">Open when...</p>
-            <div class="envelope-stack">
-              <button class="envelope envelope-peach" type="button" data-surprise="graduate">
-                <span>you graduate</span>
-              </button>
-              <button class="envelope envelope-lilac" type="button" data-surprise="brave">
-                <span>you need courage</span>
-              </button>
-              <button class="envelope envelope-mint" type="button" data-surprise="miss">
-                <span>you miss home</span>
-              </button>
-            </div>
-            <button class="wish-jar" type="button" data-surprise="wish" aria-label="Pull a wish from the jar">
-              <span class="jar-lid"></span>
-              <span class="jar-glass">
-                <span class="paper-strip strip-one"></span>
-                <span class="paper-strip strip-two"></span>
-                <span class="paper-strip strip-three"></span>
-              </span>
-              <span class="jar-label">Wish jar</span>
-            </button>
           </div>
         </article>
 
@@ -97,6 +90,9 @@
       <button class="close-button" type="button" aria-label="Close note">x</button>
       <p class="dialog-kicker" id="dialogKicker"></p>
       <h2 id="dialogTitle"></h2>
+      <figure class="dialog-photo" id="dialogPhotoWrap" hidden>
+        <img id="dialogPhoto" src="" alt="" />
+      </figure>
       <p id="dialogText"></p>
     </dialog>
 

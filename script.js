@@ -57,10 +57,36 @@ const WISHES = [
   "May you remember that being proud of yourself is allowed."
 ];
 
+// Add, remove, or edit objects in this array to change the letter count.
+const LETTERS = [
+  { name: "[Name]", text: "Short placeholder letter for Claire. Replace this with a real message." },
+  { name: "[Name]", text: "A sweet note about a favorite memory can go here." },
+  { name: "[Name]", text: "Replace this with encouragement for Claire's next chapter." },
+  { name: "[Name]", text: "A short graduation message from someone who loves Claire." },
+  { name: "[Name]", text: "Add a story, a proud moment, or a simple congratulations." },
+  { name: "[Name]", text: "Placeholder letter text. Keep it short or make it longer later." },
+  { name: "[Name]", text: "This space can hold a message from family, friends, or mentors." },
+  { name: "[Name]", text: "Replace with a note about how Claire has grown." },
+  { name: "[Name]", text: "A small letter celebrating Claire's hard work." },
+  { name: "[Name]", text: "Add a personal memory and sign it with the sender's name." },
+  { name: "[Name]", text: "Placeholder message for someone from Claire's journey." },
+  { name: "[Name]", text: "Write something kind, specific, and full of Claire." },
+  { name: "[Name]", text: "This can become a funny story or a heartfelt note." },
+  { name: "[Name]", text: "Replace this with a message from another important person." },
+  { name: "[Name]", text: "A quick note of pride, love, and celebration." },
+  { name: "[Name]", text: "This letter can be as short or as detailed as you want." },
+  { name: "[Name]", text: "Add words Claire will want to reread later." },
+  { name: "[Name]", text: "Placeholder letter for another person in the collection." },
+  { name: "[Name]", text: "Use this for a teacher, friend, sibling, parent, or mentor." },
+  { name: "[Name]", text: "Final placeholder letter. Add more objects below if needed." }
+];
+
 const dialog = document.querySelector("#surpriseDialog");
 const dialogKicker = document.querySelector("#dialogKicker");
 const dialogTitle = document.querySelector("#dialogTitle");
 const dialogText = document.querySelector("#dialogText");
+const dialogPhotoWrap = document.querySelector("#dialogPhotoWrap");
+const dialogPhoto = document.querySelector("#dialogPhoto");
 const closeButton = document.querySelector(".close-button");
 const confettiLayer = document.querySelector("#confettiLayer");
 const graduationGate = document.querySelector("#graduationGate");
@@ -68,11 +94,12 @@ const gateIntro = document.querySelector("#gateIntro");
 const graduateButton = document.querySelector("#graduateButton");
 const gateMessage = document.querySelector("#gateMessage");
 const mainSurprise = document.querySelector("#mainSurprise");
+const lettersGrid = document.querySelector("#lettersGrid");
 
 let wishIndex = 0;
 let hasOpenedGate = false;
 
-function openSurprise(key) {
+function openSurprise(key, photo = "") {
   const surprise =
     key === "wish"
       ? {
@@ -87,11 +114,61 @@ function openSurprise(key) {
   dialogKicker.textContent = surprise.kicker;
   dialogTitle.textContent = surprise.title;
   dialogText.textContent = surprise.text;
+  setDialogPhoto(photo, surprise.title);
   dialog.showModal();
 
   if (key === "confetti" || key === "graduate" || key === "wish") {
     launchConfetti();
   }
+}
+
+function setDialogPhoto(photo, title) {
+  if (!photo) {
+    dialogPhotoWrap.hidden = true;
+    dialogPhoto.removeAttribute("src");
+    dialogPhoto.alt = "";
+    return;
+  }
+
+  dialogPhotoWrap.hidden = false;
+  dialogPhoto.src = photo;
+  dialogPhoto.alt = `${title} photo`;
+}
+
+function openLetter(index) {
+  const letter = LETTERS[index];
+
+  if (!letter) return;
+
+  dialogKicker.textContent = "Letter from";
+  dialogTitle.textContent = letter.name;
+  dialogText.textContent = letter.text;
+  setDialogPhoto("", letter.name);
+  dialog.showModal();
+}
+
+function renderLetters() {
+  lettersGrid.replaceChildren();
+
+  LETTERS.forEach((letter, index) => {
+    const button = document.createElement("button");
+    const flap = document.createElement("span");
+    const subtext = document.createElement("span");
+    const name = document.createElement("span");
+
+    button.className = "letter-card";
+    button.type = "button";
+    button.dataset.letterIndex = String(index);
+    flap.className = "letter-flap";
+    flap.setAttribute("aria-hidden", "true");
+    subtext.className = "letter-subtext";
+    subtext.textContent = "from";
+    name.className = "letter-name";
+    name.textContent = letter.name;
+
+    button.append(flap, subtext, name);
+    lettersGrid.append(button);
+  });
 }
 
 function nextWish() {
@@ -116,7 +193,30 @@ function launchConfetti(count = 34) {
 }
 
 document.querySelectorAll("[data-surprise]").forEach((button) => {
-  button.addEventListener("click", () => openSurprise(button.dataset.surprise));
+  button.addEventListener("click", () => openSurprise(button.dataset.surprise, button.dataset.photo));
+});
+
+renderLetters();
+
+lettersGrid.addEventListener("click", (event) => {
+  const letterButton = event.target.closest("[data-letter-index]");
+
+  if (!letterButton) return;
+
+  openLetter(Number(letterButton.dataset.letterIndex));
+});
+
+document.querySelectorAll(".photo img").forEach((image) => {
+  image.addEventListener("load", () => image.classList.add("is-loaded"));
+  image.addEventListener("error", () => image.classList.remove("is-loaded"));
+
+  if (image.complete && image.naturalWidth > 0) {
+    image.classList.add("is-loaded");
+  }
+});
+
+dialogPhoto.addEventListener("error", () => {
+  dialogPhotoWrap.hidden = true;
 });
 
 closeButton.addEventListener("click", () => dialog.close());
