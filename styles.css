@@ -275,6 +275,20 @@ h1 {
   pointer-events: none;
 }
 
+.letter-card.has-video::before {
+  content: "video";
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  padding: 0.22rem 0.45rem;
+  color: rgba(61, 51, 48, 0.68);
+  background: rgba(255, 255, 255, 0.48);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
 .letter-subtext,
 .letter-name {
   position: relative;
@@ -567,13 +581,15 @@ h1 {
 }
 
 .surprise-dialog {
-  width: min(92vw, 31rem);
+  width: min(92vw, 42rem);
+  max-height: min(86vh, 52rem);
   padding: 2rem;
   color: var(--ink);
   background: #fffdf8;
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 30px 90px rgba(72, 53, 45, 0.28);
+  overflow: auto;
 }
 
 .surprise-dialog::backdrop {
@@ -594,7 +610,13 @@ h1 {
   line-height: 1.65;
 }
 
-.dialog-photo {
+#dialogText {
+  white-space: pre-wrap;
+  tab-size: 2;
+}
+
+.dialog-photo,
+.dialog-video {
   margin: 0 0 1rem;
   padding: 0.55rem;
   background: #fffefa;
@@ -603,12 +625,29 @@ h1 {
   transform: rotate(-1deg);
 }
 
-.dialog-photo img {
+.dialog-video {
+  transform: rotate(0.6deg);
+}
+
+.dialog-photo img,
+.dialog-video video {
   display: block;
   width: 100%;
   max-height: min(46vh, 25rem);
   object-fit: cover;
   border-radius: 4px;
+}
+
+.dialog-video video {
+  background: #211b1a;
+}
+
+.video-error {
+  margin-top: 0.65rem;
+  color: #8b4f5b;
+  font-size: 0.92rem;
+  font-weight: 750;
+  line-height: 1.45;
 }
 
 .close-button {

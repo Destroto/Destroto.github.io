@@ -58,10 +58,28 @@ const WISHES = [
 ];
 
 // Add, remove, or edit objects in this array to change the letter count.
+// Letter text preserves line breaks and tabs. Optional video fields:
+// { name: "[Name]", text: "Message", video: "./assets/photos/videos/example.mp4", videoType: "video/mp4", videoPoster: "./assets/photos/videos/example-poster.jpg" }
 const LETTERS = [
   { name: "[Name]", text: "Short placeholder letter for Claire. Replace this with a real message." },
-  { name: "[Name]", text: "A sweet note about a favorite memory can go here." },
-  { name: "[Name]", text: "Replace this with encouragement for Claire's next chapter." },
+  {
+    name: "Kelly Joe",
+    text:
+      "Dear Claire,\n\n" +
+      "\tIt is hard to believe that the little 2nd grader who once sat in my classroom is now graduating from college and beginning a journey into teaching herself. Watching you grow into such a caring and capable young woman has been very special.\n\n" +
+      "\tI always loved your quiet personality, your sense of humor, and the way you naturally connected with people. You have a way about you that makes others smile.\n\n" +
+      "\tWhen you came back to my classroom during your college studies, it was so clear that you were exactly where you were meant to be. The way you interacted with the students, encouraged them, and truly enjoyed being around kids showed what a wonderful teacher you are going to become.\n\n" +
+      "\tTeaching takes heart, patience, creativity, and the ability to make children feel seen and loved, and you already have those gifts. Your future students are so lucky to have someone who brings kindness into the classroom every day.\n\n" +
+      "\tAs you begin this new chapter, I hope you never lose the fun spirit that makes you uniquely you. The best teachers are the ones children remember not just for what they taught, but for how they made them feel. I have no doubt you will be that kind of teacher.\n\n" +
+      "\tCongratulations on your graduation and on following a path that is going to make such a difference in the lives of so many children. I am so proud of you and excited to see all the amazing things ahead for you.\n\n" +
+      "Love,\nMrs. Joe"
+  },
+  {
+    name: "[Video Test]",
+    video: "./assets/videos/test.mp4",
+    videoType: "video/mp4",
+    videoPoster: "./assets/photos/favorite-memory.jpg"
+  },
   { name: "[Name]", text: "A short graduation message from someone who loves Claire." },
   { name: "[Name]", text: "Add a story, a proud moment, or a simple congratulations." },
   { name: "[Name]", text: "Placeholder letter text. Keep it short or make it longer later." },
@@ -87,6 +105,9 @@ const dialogTitle = document.querySelector("#dialogTitle");
 const dialogText = document.querySelector("#dialogText");
 const dialogPhotoWrap = document.querySelector("#dialogPhotoWrap");
 const dialogPhoto = document.querySelector("#dialogPhoto");
+const dialogVideoWrap = document.querySelector("#dialogVideoWrap");
+const dialogVideo = document.querySelector("#dialogVideo");
+const dialogVideoError = document.querySelector("#dialogVideoError");
 const closeButton = document.querySelector(".close-button");
 const confettiLayer = document.querySelector("#confettiLayer");
 const graduationGate = document.querySelector("#graduationGate");
@@ -113,13 +134,19 @@ function openSurprise(key, photo = "") {
 
   dialogKicker.textContent = surprise.kicker;
   dialogTitle.textContent = surprise.title;
-  dialogText.textContent = surprise.text;
+  setDialogText(surprise.text);
   setDialogPhoto(photo, surprise.title);
+  setDialogVideo();
   dialog.showModal();
 
   if (key === "confetti" || key === "graduate" || key === "wish") {
     launchConfetti();
   }
+}
+
+function setDialogText(text = "") {
+  dialogText.textContent = text || "";
+  dialogText.hidden = !text;
 }
 
 function setDialogPhoto(photo, title) {
@@ -135,6 +162,34 @@ function setDialogPhoto(photo, title) {
   dialogPhoto.alt = `${title} photo`;
 }
 
+function setDialogVideo(video = "", title = "", videoType = "video/mp4", poster = "") {
+  dialogVideo.pause();
+  dialogVideo.removeAttribute("src");
+  dialogVideo.removeAttribute("poster");
+  dialogVideo.innerHTML = "";
+  dialogVideoError.hidden = true;
+  dialogVideoError.textContent = "";
+
+  if (!video) {
+    dialogVideoWrap.hidden = true;
+    dialogVideo.load();
+    return;
+  }
+
+  const source = document.createElement("source");
+  source.src = video;
+  source.type = videoType;
+  dialogVideo.append(source);
+  dialogVideo.setAttribute("aria-label", `${title} video`);
+
+  if (poster) {
+    dialogVideo.poster = poster;
+  }
+
+  dialogVideoWrap.hidden = false;
+  dialogVideo.load();
+}
+
 function openLetter(index) {
   const letter = LETTERS[index];
 
@@ -142,8 +197,9 @@ function openLetter(index) {
 
   dialogKicker.textContent = "Letter from";
   dialogTitle.textContent = letter.name;
-  dialogText.textContent = letter.text;
+  setDialogText(letter.text);
   setDialogPhoto("", letter.name);
+  setDialogVideo(letter.video, letter.name, letter.videoType, letter.videoPoster);
   dialog.showModal();
 }
 
@@ -159,6 +215,7 @@ function renderLetters() {
     button.className = "letter-card";
     button.type = "button";
     button.dataset.letterIndex = String(index);
+    button.classList.toggle("has-video", Boolean(letter.video));
     flap.className = "letter-flap";
     flap.setAttribute("aria-hidden", "true");
     subtext.className = "letter-subtext";
@@ -219,7 +276,17 @@ dialogPhoto.addEventListener("error", () => {
   dialogPhotoWrap.hidden = true;
 });
 
+dialogVideo.addEventListener("error", () => {
+  dialogVideoError.textContent =
+    "This video could not be played. Check that the file path starts with ./assets/ and that the video is MP4/H.264.";
+  dialogVideoError.hidden = false;
+});
+
 closeButton.addEventListener("click", () => dialog.close());
+
+dialog.addEventListener("close", () => {
+  dialogVideo.pause();
+});
 
 graduateButton.addEventListener("click", () => {
   if (hasOpenedGate) return;
