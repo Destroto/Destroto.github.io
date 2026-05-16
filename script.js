@@ -138,8 +138,11 @@ const LETTERS = [
 "\tBut probably the most noticeable thing that I have seen is the kindness you show to my son and the joy you bring to his life. It truly makes my heart happy seeing the two of you together.\n\n" +
 "\tI am glad that I have been able to see you graduate and start off your teaching career. I look forward to seeing all that God has in store for you."
   },
-  /*{ name: "[Name]", text: "Write something kind, specific, and full of Claire." },
-  { name: "[Name]", text: "This can become a funny story or a heartfelt note." },
+  { name: "Ryan Smith",
+    text: "\tWhat an amazing accomplishment! You've braved stressful classes and late night cram sessions, and now you have crossed the finish line! You are paving a path of faith through the noble discipline teaching. You may face inconceivable challenges, but as long as you face them with Jesus Christ as you guide and protect you will move mountains.\n\n" +
+    "-Keep smiling!\n\n" +
+    "Ryan M. Smith" },
+  /*{ name: "[Name]", text: "This can become a funny story or a heartfelt note." },
   { name: "[Name]", text: "Replace this with a message from another important person." },
   { name: "[Name]", text: "A quick note of pride, love, and celebration." },
   { name: "[Name]", text: "This letter can be as short or as detailed as you want." },
