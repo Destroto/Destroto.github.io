@@ -126,7 +126,7 @@ const LETTERS = [
     text: "Claire, we are so proud of you and love you very much!" },
   { name: "Lonnie & Barbara Thiessen",
     text: "Claire -\n" + 
-  "\tCongratulations on achieving this next mileston in your life. I have enjoyed working with you at the store and visiting with you on Sunday mornings. Wishing you the best as you start your teaching career. Some people questioned my sanity after teaching middle school for 42 years, but I don't think I could have handled 5-6 year olds for even one week. Keep me updated about your experiences and take an occasional sick day on a Tuesday to help with a Becky's pick-up. May God bless you!!\n\n" +
+  "\tCongratulations on achieving this next milestone in your life. I have enjoyed working with you at the store and visiting with you on Sunday mornings. Wishing you the best as you start your teaching career. Some people questioned my sanity after teaching middle school for 42 years, but I don't think I could have handled 5-6 year olds for even one week. Keep me updated about your experiences and take an occasional sick day on a Tuesday to help with a Becky's pick-up. May God bless you!!\n\n" +
   "Lonnie & Barbara"
   },
   { name: "Jordan Vasquez", 
