@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Claire's Graduation Surprise</title>
+    <title>???</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -12,13 +12,13 @@
         <div class="gate-intro" id="gateIntro">
           <p class="kicker">For Claire</p>
           <!--<h1 id="gateTitle">One tiny thing first.</h1>-->
-          <button class="graduate-button" id="graduateButton" type="button">Click after Graduating</button>
+          <button class="graduate-button" id="graduateButton" type="button">Tap after Graduating</button>
         </div>
         <div class="gate-message" id="gateMessage" hidden>
           <p class="kicker">You did it</p>
           <h2>Congrats Claire!</h2>
           <p>
-            Today the day. Take one big breath, soak it in, and then open the rest of your surprise.
+            Today's the day. 
           </p>
         </div>
       </div>
@@ -27,20 +27,18 @@
     <main class="desk is-hidden" id="mainSurprise" aria-labelledby="pageTitle" hidden>
       <section class="intro" aria-label="Graduation surprise">
         <!--<p class="kicker">A tiny graduation surprise</p>-->
-        <h1 id="pageTitle">Claire, this one is for you.</h1>
+        <h1 id="pageTitle">We're so proud of you!</h1>
         <p>
-          Open letters from the people who have been part of your journey, then peek through a few
-          little memories saved just for you.
+          Despite everything that was thrown your way, you stuck it out, followed through, and now here you are at the end of it all!
         </p>
       </section>
 
       <section class="letters-section" aria-labelledby="lettersTitle">
         <div class="section-heading">
-          <p class="kicker">Letters for Claire</p>
-          <h2 id="lettersTitle">A collection from your people</h2>
+          <p></p>
+          <h2 id="lettersTitle">Letters to Claire</h2>
           <p>
-            Each envelope is a letter placeholder. Add, remove, or edit letters in
-            <code>script.js</code>.
+            Just a few words from people who love and care for you 🩷
           </p>
         </div>
         <div class="letters-grid" id="lettersGrid" aria-label="Letter collection"></div>
@@ -53,25 +51,33 @@
         <article class="scrapbook memory-board" aria-label="Claire's graduation scrapbook">
           <div class="page memory-page">
             <p class="page-label">Scrapbook</p>
-            <h2>Little moments worth keeping</h2>
+            <h2>Just a few moments worth keeping</h2>
             <div class="polaroid-grid">
-              <button class="polaroid memory-card" type="button" data-surprise="memory" data-photo="./assets/photos/favorite-memory.jpg">
+              <button
+                class="polaroid memory-card"
+                type="button"
+                data-surprise="memory"
+                data-photo="./assets/photos/grad-prep.jpeg"
+                data-video="./assets/videos/Grad-prep.mov"
+                data-video-type="video/mp4"
+                data-video-poster="./assets/photos/grad-prep.jpeg"
+              >
                 <span class="photo photo-sun">
-                  <img src="./assets/photos/favorite-memory.jpg" alt="Claire favorite memory" />
+                  <img src="./assets/photos/grad-prep.jpeg" alt="Claire graduation prep" />
                 </span>
-                <span>Favorite memory</span>
+                <span>Grad Prep! 🎓</span>
               </button>
               <button class="polaroid memory-card" type="button" data-surprise="proud" data-photo="./assets/photos/proud-moment.jpg">
                 <span class="photo photo-stars">
                   <img src="./assets/photos/proud-moment.jpg" alt="Claire proud moment" />
                 </span>
-                <span>Proud moment</span>
+                <span>Caution ⚠️: Teaching in progress</span>
               </button>
               <button class="polaroid memory-card" type="button" data-surprise="future" data-photo="./assets/photos/next-adventure.jpg">
                 <span class="photo photo-path">
                   <img src="./assets/photos/next-adventure.jpg" alt="Claire next adventure" />
                 </span>
-                <span>Next adventure</span>
+                <span>Looking forward to the future 👀</span>
               </button>
             </div>
           </div>

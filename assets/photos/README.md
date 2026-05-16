@@ -31,4 +31,14 @@ Paths should start with `./assets/`. For example, use `./assets/photos/test.mp4`
 
 For best browser support, use MP4 files encoded as H.264 video with AAC audio. If an MP4 still fails after the path is correct, re-export or convert it with those settings.
 
+GIFs should use the `image` field, not the `video` field:
+
+```js
+{
+  name: "Person Name",
+  text: "Optional message text.",
+  image: "./assets/photos/person-name.gif"
+}
+```
+
 Letter text supports returns and tab indents. In `script.js`, use `\n` for a new line and `\t` for an indent, or copy the Kelly Joe letter format as a reference.

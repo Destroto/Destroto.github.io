@@ -1,21 +1,21 @@
 const SURPRISES = {
   memory: {
-    kicker: "Favorite memory",
-    title: "A page for the little things",
+    kicker: "Grad Prep! 🎓",
+    title: "Just a small snippet of the night before",
     text:
-      "This is a perfect spot for a favorite Claire memory: a funny story, a proud day, or a tiny moment that still makes everyone smile."
+      "What a big day that you've looked forward to for soooooo long! Glad to see you're still celebrating in top Claire fashion!"
   },
   proud: {
-    kicker: "Proud moment",
-    title: "Look what you did",
+    kicker: "Caution ⚠️: Teaching in progress",
+    title: "Miss Hamlett doing what she does best",
     text:
-      "Graduation is not just one day. It is every late night, brave choice, finished assignment, big laugh, and tiny step that got you here."
+      "It's been amazing seeing home much you've already poured into 'your kids', I can't wait to hear all the stories from the connections you make with your class, as you making teaching all your own ❤️!"
   },
   future: {
-    kicker: "Next adventure",
-    title: "The next page is yours",
+    kicker: "Looking forward to the future 👀",
+    title: "Kindergarten bound!",
     text:
-      "Wherever Claire goes next, she gets to bring all of this with her: the work, the heart, the sparkle, and the people cheering from every direction."
+      "We're all looking forward to seeing all the good you do, and the love you will bring to your class. Can't wait to see what lies even further beyond that (but let's enjoy things one step at a time)!"
   },
   graduate: {
     kicker: "Open when",
@@ -36,16 +36,16 @@ const SURPRISES = {
       "Home is not only a place. It is every person who knows your laugh, saves you a seat, and says your name like good news."
   },
   heart: {
-    kicker: "Tiny sticker",
-    title: "Loved, loved, loved",
+    kicker: "Heart sticker",
+    title: "🩷",
     text:
-      "No matter how grown-up graduation feels, there will always be people who are wildly, softly, completely in your corner."
+      "Know that no matter what you may go through, and what you may face, you will always have people surrounding you that love you dearly!"
   },
   confetti: {
     kicker: "Graduation cap",
     title: "Cue the confetti",
     text:
-      "This cap has one job: reminding Claire that she deserves every bit of celebration today."
+      "This cap has one job: reminding you that she deserves every bit of celebration today. That's right, YOU earned it!"
   }
 };
 
@@ -58,10 +58,27 @@ const WISHES = [
 ];
 
 // Add, remove, or edit objects in this array to change the letter count.
-// Letter text preserves line breaks and tabs. Optional video fields:
-// { name: "[Name]", text: "Message", video: "./assets/photos/videos/example.mp4", videoType: "video/mp4", videoPoster: "./assets/photos/videos/example-poster.jpg" }
+// Letter text preserves line breaks and tabs. Optional media fields:
+// { name: "[Name]", text: "Message", image: "./assets/photos/example.gif" }
+// { name: "[Name]", text: "Message", video: "./assets/videos/example.mp4", videoType: "video/mp4", videoPoster: "./assets/photos/example-poster.jpg" }
 const LETTERS = [
-  { name: "[Name]", text: "Short placeholder letter for Claire. Replace this with a real message." },
+  { name: "Andrea Reed", 
+    text: "'I praise you because I am fearfully and wonderfully made;\n" +
+    "your works are wonderful,\n" +
+    "I know that full well.'\n" +
+    "Psalm 139:14\n\n" +
+    "Claire is an exceptional teacher, friend, and individual!\n" +
+    "Love and kindness direct her steps and she blesses others with her relational and compassionate spirit!\n" +
+    "Always willing to lend a helping hand and a listening ear add to Claire's outstanding character!\n" +
+    "In all that she does, Claire allows the talents God has gifted her with to shine brightly!\n" +
+    "Responsible, respectful, and ready to tackle any challenge sum up her determination and dedication to teaching!\n" +
+    "Enjoyable to be around always comes to mind when thinking of this wonderful lady!\n\n" +
+
+    "I am honored to know you, Claire, and I have been blessed by your kind and loving spirit!\n" +
+    "Congratulations on your graduation!  You are wonderful!\n\n" +
+
+    "💜 Love,\n" +
+    "Andrea Reed" },
   {
     name: "Kelly Joe",
     text:
@@ -74,21 +91,54 @@ const LETTERS = [
       "\tCongratulations on your graduation and on following a path that is going to make such a difference in the lives of so many children. I am so proud of you and excited to see all the amazing things ahead for you.\n\n" +
       "Love,\nMrs. Joe"
   },
-  {
+  /*{
     name: "[Video Test]",
     video: "./assets/videos/test.mp4",
     videoType: "video/mp4",
     videoPoster: "./assets/photos/favorite-memory.jpg"
+  },*/
+  { name: "Cherise Eutsler", 
+    text: "Claire,\n\n" +
+    "\tI have been so blessed by having you in my life! You have been a wonderful friend, babysitter, and nursery worker. I am so thankful I have gotten to know you, and you have made the world a better place with all of your sunshine!\n\n" +
+    "\tCongratulations on your college graduation! I know it wasn't easy, but I am so proud of you for persevering and working so hard to make it to the end. You are going to be such an amazing teacher and the students who are going to be in your class will be so blessed by you! Don't forget that you are a precious child of God and that he has big plans for you!\n\n" +
+    "\tGo get 'em, Miss Hamlett!" },
+  { name: "Anna Cardon", 
+    text: "Claire,\n\n" +
+    "\tI am so proud of you and everything you’ve accomplished! It has been amazing to see you grow in your abilities and work hard. You are going to be such an amazing teacher, and I envy the kids in your classes! They have no idea how lucky they truly are. So thankful for you and to have you as my best friend,\n\n" +
+    "\tI sure love you!" },
+  { name: "Kieran Wohlford", 
+    text: "CLAIRE!!\n\n" +
+    "Congrats on reaching such a huge milestone and graduating college! I am so proud of you, and the hard work you put into this degree does not go unnoticed. The nights of staying up, questioning if this was the career path for you, were understandable. But it was your faith and dedication that got you here. I’m sure you will look back on those weird conversations of China and see that it was worth it. You are in a position to change lives and lead kids to the path of success in their educational careers. This feat should not be taken lightly, and I know that you will put your heart and soul into teaching all the kids that enter your classroom. This next chapter in your life is going to be so exciting and I’m looking forward to watching it unfold! Love you!\n\n" +
+    "Dear Jesus-\n" +
+    "\tI pray that you will stand by Claire in this new journey of teaching her very own classroom. You have given her the gifts that make her the best kind of person in this position. Lord, I ask that when the days seem stressful and the questions start to arise, you would remind Claire of the reasons why you have her where she is at. Thank you Father for giving Claire the strength to finish school, especially with the weight of all that was happening at home. Thank you Father for getting her here and I pray that she feels your presence as she walks across that stage.\n\n -Amen" },
+  { name: "Kirsten Hickey", 
+    text: "Claire,\n\n" +
+    "\tI have watched you grow from a little dancer to the smart strong woman you are today. I especially loved all the time we spent together sitting in my car in the dance studio parking lot trying to figure out life. I also loved having you come to my class last year, you were a sweet part of our class family. It has been such a joy to be a part of your life. I’m so proud of you and of what you’ve have achieved, you’re going to be the most amazing kindergarten teacher ever!!  Your students will absolutely love you like I love you.\n\n" +
+    "\tCongratulations Claire- you have worked so hard for this and it will be so special to watch you spread your teacher wings and fly.\n\n" +
+    "Also, hit me up for my TPT password I love to share all my kindergarten goodies!\n\n" +
+    "Love,\n" +
+    "Ms. Kirsten 🩷"},
+
+    { name: "Keean Bogle", 
+    text: "Congratulations on graduating Claire!\n\n" + 
+    "\tDo a wobble about never having to be in a school again! Umm wait nevermind. Congratulations for never having to be the student again. Proud of you for finishing. Now just don't worry too much about the future."},
+  { name: "Daryl Nikkel", 
+    text: "Claire, we are so proud of you and love you very much!" },
+  { name: "Lonnie & Barbara Thiessen",
+    text: "Claire -\n" + 
+  "\tCongratulations on achieving this next mileston in your life. I have enjoyed working with you at the store and visiting with you on Sunday mornings. Wishing you the best as you start your teaching career. Some people questioned my sanity after teaching middle school for 42 years, but I don't think I could have handled 5-6 year olds for even one week. Keep me updated about your experiences and take an occasional sick day on a Tuesday to help with a Becky's pick-up. May God bless you!!\n\n" +
+  "Lonnie & Barbara"
   },
-  { name: "[Name]", text: "A short graduation message from someone who loves Claire." },
-  { name: "[Name]", text: "Add a story, a proud moment, or a simple congratulations." },
-  { name: "[Name]", text: "Placeholder letter text. Keep it short or make it longer later." },
-  { name: "[Name]", text: "This space can hold a message from family, friends, or mentors." },
-  { name: "[Name]", text: "Replace with a note about how Claire has grown." },
-  { name: "[Name]", text: "A small letter celebrating Claire's hard work." },
-  { name: "[Name]", text: "Add a personal memory and sign it with the sender's name." },
-  { name: "[Name]", text: "Placeholder message for someone from Claire's journey." },
-  { name: "[Name]", text: "Write something kind, specific, and full of Claire." },
+  { name: "Jordan Vasquez", 
+    text: "No manches, Claire, no es tan serio, cálmate.",
+    image: "./assets/photos/jordan.gif"},
+  { name: "Karen Smith", 
+    text: "\tIn the short time that I've known you, you have brought a sparkle and an enthusiasm to the room. You roll with the punches with wit and a little sass.\n\n" +
+"\tThough I am just getting to know you, some things I have learned and noticed is the difference you make in the lives around you. Whether it is on your mission trips, volunteer work, or work with children at church, you have the heart of a servant.  I have seen how your face lights up when you talk about your students and your interactions with them. You are going to be such a good teacher.\n\n" +
+"\tBut probably the most noticeable thing that I have seen is the kindness you show to my son and the joy you bring to his life. It truly makes my heart happy seeing the two of you together.\n\n" +
+"\tI am glad that I have been able to see you graduate and start off your teaching career. I look forward to seeing all that God has in store for you."
+  },
+  /*{ name: "[Name]", text: "Write something kind, specific, and full of Claire." },
   { name: "[Name]", text: "This can become a funny story or a heartfelt note." },
   { name: "[Name]", text: "Replace this with a message from another important person." },
   { name: "[Name]", text: "A quick note of pride, love, and celebration." },
@@ -96,7 +146,7 @@ const LETTERS = [
   { name: "[Name]", text: "Add words Claire will want to reread later." },
   { name: "[Name]", text: "Placeholder letter for another person in the collection." },
   { name: "[Name]", text: "Use this for a teacher, friend, sibling, parent, or mentor." },
-  { name: "[Name]", text: "Final placeholder letter. Add more objects below if needed." }
+  { name: "[Name]", text: "Final placeholder letter. Add more objects below if needed." }*/
 ];
 
 const dialog = document.querySelector("#surpriseDialog");
@@ -120,7 +170,7 @@ const lettersGrid = document.querySelector("#lettersGrid");
 let wishIndex = 0;
 let hasOpenedGate = false;
 
-function openSurprise(key, photo = "") {
+function openSurprise(key, photo = "", video = "", videoType = "video/mp4", videoPoster = "") {
   const surprise =
     key === "wish"
       ? {
@@ -135,8 +185,8 @@ function openSurprise(key, photo = "") {
   dialogKicker.textContent = surprise.kicker;
   dialogTitle.textContent = surprise.title;
   setDialogText(surprise.text);
-  setDialogPhoto(photo, surprise.title);
-  setDialogVideo();
+  setDialogPhoto(video ? "" : photo, surprise.title);
+  setDialogVideo(video, surprise.title, videoType, videoPoster || photo);
   dialog.showModal();
 
   if (key === "confetti" || key === "graduate" || key === "wish") {
@@ -198,7 +248,7 @@ function openLetter(index) {
   dialogKicker.textContent = "Letter from";
   dialogTitle.textContent = letter.name;
   setDialogText(letter.text);
-  setDialogPhoto("", letter.name);
+  setDialogPhoto(letter.image || "", letter.name);
   setDialogVideo(letter.video, letter.name, letter.videoType, letter.videoPoster);
   dialog.showModal();
 }
@@ -215,7 +265,7 @@ function renderLetters() {
     button.className = "letter-card";
     button.type = "button";
     button.dataset.letterIndex = String(index);
-    button.classList.toggle("has-video", Boolean(letter.video));
+    button.classList.toggle("has-video", Boolean(letter.video || letter.image));
     flap.className = "letter-flap";
     flap.setAttribute("aria-hidden", "true");
     subtext.className = "letter-subtext";
@@ -237,6 +287,9 @@ function nextWish() {
 function launchConfetti(count = 34) {
   const colors = ["#f8b7bf", "#ffd0ad", "#ffe59b", "#bfe8d4", "#b9d8f6", "#d8c6f2"];
 
+  let yay = new Audio('./assets/yay.mp3');
+    yay.play();
+
   for (let index = 0; index < count; index += 1) {
     const piece = document.createElement("span");
     piece.className = "confetti";
@@ -250,7 +303,15 @@ function launchConfetti(count = 34) {
 }
 
 document.querySelectorAll("[data-surprise]").forEach((button) => {
-  button.addEventListener("click", () => openSurprise(button.dataset.surprise, button.dataset.photo));
+  button.addEventListener("click", () =>
+    openSurprise(
+      button.dataset.surprise,
+      button.dataset.photo,
+      button.dataset.video,
+      button.dataset.videoType,
+      button.dataset.videoPoster
+    )
+  );
 });
 
 renderLetters();
@@ -302,7 +363,7 @@ graduateButton.addEventListener("click", () => {
     mainSurprise.classList.remove("is-hidden");
     mainSurprise.classList.add("is-revealed");
     graduationGate.classList.add("is-finished");
-  }, 3600);
+  }, 4600);
 });
 
 dialog.addEventListener("click", (event) => {
