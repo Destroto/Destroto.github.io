@@ -142,8 +142,12 @@ const LETTERS = [
     text: "\tWhat an amazing accomplishment! You've braved stressful classes and late night cram sessions, and now you have crossed the finish line! You are paving a path of faith through the noble discipline teaching. You may face inconceivable challenges, but as long as you face them with Jesus Christ as you guide and protect you will move mountains.\n\n" +
     "-Keep smiling!\n\n" +
     "Ryan M. Smith" },
-  /*{ name: "[Name]", text: "This can become a funny story or a heartfelt note." },
-  { name: "[Name]", text: "Replace this with a message from another important person." },
+  { name: "Mrs. Kaspar's Class",
+    video: "./assets/videos/kaspars-class.mov",
+    videoType: "video/mp4",
+    //videoPoster: "./assets/photos/favorite-memory.jpg"
+  },
+  /*{ name: "[Name]", text: "Replace this with a message from another important person." },
   { name: "[Name]", text: "A quick note of pride, love, and celebration." },
   { name: "[Name]", text: "This letter can be as short or as detailed as you want." },
   { name: "[Name]", text: "Add words Claire will want to reread later." },
